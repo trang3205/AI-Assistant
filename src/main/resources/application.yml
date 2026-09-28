@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+lmstudio:
+  base-url: http://localhost:1234
+  model: qwen2.5-3b-instruct
+  temperature: 0.7
+  max-tokens: 1024
+
+rag:
+  documents-path: data/          # Thư mục chứa PDF
+  chunk-size: 800                # Kích thước mỗi chunk
+  chunk-overlap: 150              # Độ chồng lấn giữa các chunk
+  max-results: 8                 # Số chunk lấy ra khi tìm kiếm
+  min-score: 0.35                 # Ngưỡng tương đồng tối thiểu
+
+logging:
+  level:
+    com.example.aiassistant: DEBUG
+    dev.langchain4j: INFO
