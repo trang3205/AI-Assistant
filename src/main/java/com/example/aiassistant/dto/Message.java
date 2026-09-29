@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+// DTO đại diện cho một tin nhắn đơn lẻ trong lịch sử hội thoại
 public class Message {
     private String role; // "system" | "user" | "assistant"
     private String content;

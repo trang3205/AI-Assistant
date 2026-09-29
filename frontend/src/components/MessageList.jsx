@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 
+// Hiển thị danh sách các tin nhắn hội thoại và tự động cuộn theo nội dung mới
 export default function MessageList({ messages, loading }) {
     const bottomRef = useRef(null);
 

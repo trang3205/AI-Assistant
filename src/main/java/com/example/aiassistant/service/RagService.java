@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+// Quản lý việc nạp tài liệu và truy vấn ngữ cảnh (RAG) dựa trên vector embedding
 public class RagService {
 
     @Value("${rag.documents-path}")
@@ -41,6 +42,7 @@ public class RagService {
     private EmbeddingModel embeddingModel;
     private EmbeddingStore<TextSegment> embeddingStore;
 
+    // Khởi tạo model embedding và tự động nạp tài liệu vào bộ nhớ
     @PostConstruct
     public void init() {
         embeddingModel = new AllMiniLmL6V2EmbeddingModel();
@@ -48,6 +50,7 @@ public class RagService {
         loadDocuments();
     }
 
+    // Nạp và chia nhỏ tài liệu từ thư mục cấu hình rồi lưu vào vector store
     private void loadDocuments() {
         try {
             Path path = Path.of(documentsPath);
@@ -75,6 +78,7 @@ public class RagService {
         }
     }
 
+    // Tìm kiếm các đoạn ngữ cảnh liên quan nhất đến câu hỏi
     public String findContext(String question) {
         try {
             var queryEmbedding = embeddingModel.embed(question).content();

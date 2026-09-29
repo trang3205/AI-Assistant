@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
+// DTO đại diện cho dữ liệu phản hồi hội thoại gửi về client
 public class ChatResponse {
     private String reply;
 }

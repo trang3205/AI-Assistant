@@ -16,6 +16,7 @@ import java.util.Map;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+// Gửi yêu cầu trò chuyện tới LM Studio server theo dạng reactive bất đồng bộ
 public class LmStudioService {
 
     private final WebClient lmStudioWebClient;
@@ -30,9 +31,7 @@ public class LmStudioService {
     @Value("${lmstudio.max-tokens}")
     private int maxTokens;
 
-    /**
-     * Trả về Mono<String> — reactive thuần, không block
-     */
+    // Gọi API /v1/chat/completions của LM Studio để tạo phản hồi từ LLM
     public Mono<String> chat(List<Message> messages) {
         Map<String, Object> body = Map.of(
                 "model", model,

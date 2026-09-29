@@ -3,6 +3,7 @@ import { sendMessage } from '../api/chatApi';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
+// Component khung chat chính quản lý danh sách tin nhắn, trạng thái gửi và gọi API
 export default function ChatBox() {
     const [messages, setMessages] = useState([
         {
@@ -12,6 +13,7 @@ export default function ChatBox() {
     ]);
     const [loading, setLoading] = useState(false);
 
+    // Xử lý gửi tin nhắn người dùng và cập nhật phản hồi từ AI
     const handleSend = async (text) => {
         const userMsg = { role: 'user', content: text };
         setMessages((prev) => [...prev, userMsg]);
@@ -48,6 +50,7 @@ export default function ChatBox() {
         }
     };
 
+    // Đặt lại hội thoại về trạng thái ban đầu
     const handleClear = () => {
         if (confirm('Xóa toàn bộ cuộc trò chuyện?')) {
             setMessages([

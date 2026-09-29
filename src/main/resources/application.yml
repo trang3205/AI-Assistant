@@ -1,20 +1,20 @@
 server:
-  port: 8080
+  port: 8080                    # Cổng chạy backend Spring Boot ←
 
 lmstudio:
-  base-url: http://localhost:1234
-  model: qwen2.5-3b-instruct
-  temperature: 0.7
-  max-tokens: 1024
+  base-url: http://localhost:1234 # Địa chỉ API local của LM Studio ←
+  model: qwen2.5-3b-instruct    # Mô hình LLM được LM Studio nạp ←
+  temperature: 0.7              # Mức độ sáng tạo trong câu phản hồi ←
+  max-tokens: 1024              # Số token tối đa cho mỗi phản hồi ←
 
 rag:
-  documents-path: data/          # Thư mục chứa PDF
-  chunk-size: 800                # Kích thước mỗi chunk
-  chunk-overlap: 150              # Độ chồng lấn giữa các chunk
-  max-results: 8                 # Số chunk lấy ra khi tìm kiếm
-  min-score: 0.35                 # Ngưỡng tương đồng tối thiểu
+  documents-path: data/          # Thư mục nạp tài liệu tra cứu (RAG) ←
+  chunk-size: 800                # Kích thước mỗi đoạn văn bản chia nhỏ (ký tự) ←
+  chunk-overlap: 150              # Số ký tự ghi đè/chồng lấn giữa các đoạn ←
+  max-results: 8                 # Số đoạn ngữ cảnh tối đa lấy khi truy vấn ←
+  min-score: 0.35                 # Ngưỡng độ tương đồng tối thiểu của ngữ cảnh ←
 
 logging:
   level:
-    com.example.aiassistant: DEBUG
-    dev.langchain4j: INFO
+    com.example.aiassistant: DEBUG # Mức độ log chi tiết cho gói ứng dụng ←
+    dev.langchain4j: INFO          # Mức độ log cho thư viện LangChain4j ←

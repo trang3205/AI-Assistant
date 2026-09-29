@@ -16,11 +16,13 @@ import java.util.List;
 @RequestMapping("/api/chat")
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
+// REST Endpoint tiếp nhận và xử lý các yêu cầu hội thoại từ phía client
 public class ChatController {
 
     private final LmStudioService lmStudioService;
     private final RagService ragService;
 
+    // Tiếp nhận câu hỏi, truy vấn ngữ cảnh (RAG) và chuyển tới LLM xử lý
     @PostMapping
     public Mono<ChatResponse> chat(@RequestBody ChatRequest req) {
         List<Message> messages = new ArrayList<>();
@@ -56,6 +58,7 @@ public class ChatController {
                 .map(ChatResponse::new);
     }
 
+    // Kiểm tra trạng thái hoạt động của backend service
     @GetMapping("/ping")
     public String ping() {
         return "AI Assistant is running!";
